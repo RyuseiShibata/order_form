@@ -9,14 +9,6 @@ $(function () {
     });
 });
 
-$(function valueChange(event){
-    let checkValue = $('input[name="num"]:checked').val();
-    let input = $('input[name="input_num"]').val();
-    if(checkValue == 0 || checkValue == 1){
-        input.disabled = true;
-    };
-});
-
 
 $(function () {
     // 送信
