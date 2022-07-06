@@ -38,12 +38,12 @@ $(function () {
 
         //納期について
         if($('input[name="date"]:checked').val()== 0){
-            num = "急ぐ";
+            date = "急ぐ";
         }
         else if($('input[name="date"]:checked').val()== 1){
-            num = "急がない";
+            date = "急がない";
         }else{
-            num = $('input[name="input_date"]').val();
+            date = $('input[name="input_date"]').val();
         }
             
         let msg = `【注文内容】\n 商品名：${item_name}\n 個数：${num}\n 納期： ${date}\n 備考： ${note}`;
