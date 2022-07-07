@@ -1,5 +1,4 @@
 
-
 $(function () {
     // カレンダー
     $(function () {
@@ -9,7 +8,89 @@ $(function () {
     });
 });
 
-function sendForm() {
+var tete;
+/*
+$(function () {
+    // 送信
+    $('#form_0').submit(function (){
+        tete  = "残念";
+        
+        let item_name = $('input[name="item_name"]').val();
+        let num;
+        let date;
+        let note = document.getElementById("note").value;
+        
+        //個数について
+        if($('input[name="num"]:checked').val()== 0){
+            num = "いつもの個数";
+        }
+        else if($('input[name="num"]:checked').val()== 1){
+            num = "最小ロット";
+        }else{
+            num = $('input[name="input_num"]').val();
+        }
+
+        //納期について
+        if($('input[name="date"]:checked').val()== 0){
+            date = "急ぐ";
+        }
+        else if($('input[name="date"]:checked').val()== 1){
+            date = "急がない";
+        }else{
+            date = $('input[name="input_date"]').val();
+        }
+            
+        let msg = `【注文内容】\n 商品名：${item_name}\n 個数：${num}\n 納期：${date}\n 備考：${note}`;
+        sendText(msg);
+        tete = "やったー！";
+        return false;
+    });
+});
+
+
+const button1 = document.getElementById('button1');
+
+button1.addEventListener('click', (e) => {
+    // デフォルトのイベントをキャンセル
+    e.preventDefault();
+
+    tete  = "残念";
+        
+    let item_name = $('input[name="item_name"]').val();
+    let num;
+    let date;
+    let note = document.getElementById("note").value;
+        
+    //個数について
+    if($('input[name="num"]:checked').val()== 0){
+        num = "いつもの個数";
+    }
+    else if($('input[name="num"]:checked').val()== 1){
+        num = "最小ロット";
+    }else{
+        num = $('input[name="input_num"]').val();
+    }
+
+    //納期について
+    if($('input[name="date"]:checked').val()== 0){
+        date = "急ぐ";
+    }
+    else if($('input[name="date"]:checked').val()== 1){
+        date = "急がない";
+    }else{
+        date = $('input[name="input_date"]').val();
+    }
+            
+    let msg = `【注文内容】\n 商品名：${item_name}\n 個数：${num}\n 納期：${date}\n 備考：${note}`;
+    sendText(msg);
+    tete = "やったー！";
+    return false;
+  });
+
+console.log(tete);
+*/
+
+function subForm() {
     console.log("送信完了");
         let item_name = $('input[name="item_name"]').val();
         let num;
@@ -37,47 +118,11 @@ function sendForm() {
         }
             
         let msg = `【注文内容】\n 商品名：${item_name}\n 個数：${num}\n 納期：${date}\n 備考：${note}`;
+        
+        //console.log(msg);
         sendText(msg);
-
         return false;
 }
-/*
-$(function () {
-    // 送信
-    $("form").submit(function () {
-        let item_name = $('input[name="item_name"]').val();
-        let num;
-        let date;
-        let note = document.getElementById("note").value;
-        
-        //個数について
-        if($('input[name="num"]:checked').val()== 0){
-            num = "いつもの個数";
-        }
-        else if($('input[name="num"]:checked').val()== 1){
-            num = "最小ロット";
-        }else{
-            num = $('input[name="input_num"]').val();
-        }
-
-        //納期について
-        if($('input[name="date"]:checked').val()== 0){
-            date = "急ぐ";
-        }
-        else if($('input[name="date"]:checked').val()== 1){
-            date = "急がない";
-        }else{
-            date = $('input[name="input_date"]').val();
-        }
-            
-        let msg = `【注文内容】\n 商品名：${item_name}\n 個数：${num}\n 納期：${date}\n 備考：${note}`;
-        sendText(msg);
-        console.log("u-");
-
-        return false;
-    });
-});
-*/
 
 var i = 1;
 
