@@ -65,12 +65,12 @@ function subForm() {
     
             //納期について
             if(clone_element[j].querySelector("#date").value == 0){
-                date[0] = "急ぐ";
+                date[j] = "急ぐ";
             }
             else if(clone_element[j+1].querySelector("#date").value == 1){
-                date[0] = "急がない";
+                date[j] = "急がない";
             }else{
-                date[0] = clone_element[j+1].querySelector("#input_date").value ;
+                date[j] = clone_element[j+1].querySelector("#input_date").value ;
             }
 
         }
