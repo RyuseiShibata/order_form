@@ -75,7 +75,7 @@ function subForm() {
 
         }
 
-        for(let k=0; k<=i; k++){ 
+        for(let k=0; k<i; k++){ 
             let msg = `【注文内容】\n 商品名：${item_name[k]}\n 個数：${num[k]}\n 納期：${date[k]}\n 備考：${note[k]}`;
             sendText(msg);
             console.log(msg);
