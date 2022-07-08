@@ -83,8 +83,7 @@ function subForm() {
             setTimeout(sendText(msg), 1000);
             console.log(msg);
         }
-
-        
+    
         return false;
  
 }
