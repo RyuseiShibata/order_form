@@ -110,7 +110,7 @@ function addForm() {
 
     i++;
 
-    # フォームタイトルを表示するpタグを前のフォームの末尾に追加
+    // フォームタイトルを表示するpタグを前のフォームの末尾に追加
     var new_element = document.createElement('p');
     new_element.textContent = `商品${i}`;
     new_element.className = "ttt";
