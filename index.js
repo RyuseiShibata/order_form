@@ -88,11 +88,11 @@ var i = 1;
 var clone_element = {};
 
 function addForm() {
+    
     // 複製するHTML要素を取得
     var content_area = document.getElementById(`form_${i-1}`);
 
     // 複製
-   
     clone_element[i] = content_area.cloneNode(true);
    
     // 複製した要素の属性を編集
@@ -100,11 +100,22 @@ function addForm() {
 
     // 複製したHTML要素をページに挿入
     content_area.after(clone_element[i]);
-    
-    // フォームを複製したら前のフォームの送信ボタンを消す
+
+    // 複製後にフォームをクリア
+    clone_element[i].reset();
+
+    // フォームを複製したら前のフォームの追加ボタン、送信ボタンを消す
     document.getElementById(`sub`).remove();
+    document.getElementById(`add`).remove();
 
     i++;
+
+    # フォームタイトルを表示するpタグを前のフォームの末尾に追加
+    var new_element = document.createElement('p');
+    new_element.textContent = `商品${i}`;
+    new_element.className = "ttt";
+
+    content_area.after(new_element);
 };
 
 /*
