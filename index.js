@@ -43,12 +43,6 @@ function subForm() {
             date[0] = $('input[name="input_date"]').val();
         }
 
-        console.log(num[0]);
-        console.log(date[0]);
-        console.log(i);
-        console.log(clone_element[1].querySelector("#item_name").value);
-    
-
         for(let j=1; j<i; j++){
 
             item_name[j] = clone_element[j].querySelector("#item_name").value;
