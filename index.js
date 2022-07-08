@@ -57,7 +57,7 @@ function subForm() {
             if(clone_element[j].querySelector("#num").value == 0){
                 num[j] = "いつもの個数";
             }
-            else if(clone_element[j+1].querySelector("#num").value == 1){
+            else if(clone_element[j].querySelector("#num").value == 1){
                 num[j] = "最小ロット";
             }else{
                 num[j] = clone_element[j].querySelector("#input_num");
@@ -67,10 +67,10 @@ function subForm() {
             if(clone_element[j].querySelector("#date").value == 0){
                 date[j] = "急ぐ";
             }
-            else if(clone_element[j+1].querySelector("#date").value == 1){
+            else if(clone_element[j].querySelector("#date").value == 1){
                 date[j] = "急がない";
             }else{
-                date[j] = clone_element[j+1].querySelector("#input_date").value ;
+                date[j] = clone_element[j].querySelector("#input_date").value ;
             }
 
         }
