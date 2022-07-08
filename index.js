@@ -74,19 +74,13 @@ function subForm() {
             }
 
         }
-
-        let msg = `【注文内容】\n 商品名：${item_name[0]}\n 個数：${num[0]}\n 納期：${date[0]}\n 備考：${note[0]}`;
-        console.log(msg);
-        console.log(i);
-        sendText(msg);
-        
-    if(i>1){
-        for(let k=1; k<i; k++){ 
+       
+        for(let k=0; k<i; k++){ 
             msg = `【注文内容】\n 商品名：${item_name[k]}\n 個数：${num[k]}\n 納期：${date[k]}\n 備考：${note[k]}`;
             setTimeout(sendText(msg), 1000);
             console.log(msg);
         }
-    }
+    
         
     return false;
  
