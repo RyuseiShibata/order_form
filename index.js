@@ -8,6 +8,9 @@ $(function () {
     });
 });
 
+var i = 1;
+var clone_element = {};
+var msg;
 
 function subForm() {
     console.log("送信完了");
@@ -80,8 +83,8 @@ function subForm() {
  
 }
 
-var i = 1;
-var clone_element = {};
+
+
 
 function addForm() {
     console.log(i);
