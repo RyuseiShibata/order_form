@@ -8,9 +8,7 @@ $(function () {
     });
 });
 
-var i = 1;
-var clone_element = {};
-var msg;
+let msg
 
 function subForm() {
     console.log("送信完了");
@@ -22,9 +20,6 @@ function subForm() {
 
         item_name[0] = $('input[name="item_name"]').val();
         note[0] = document.getElementById("note").value;
-
-        console.log(item_name[0]);
-        console.log(note[0]);
 
         //個数について
         if($('input[name="num"]:checked').val()== 0){
@@ -45,6 +40,7 @@ function subForm() {
         }else{
             date[0] = $('input[name="input_date"]').val();
         }
+    
 
         for(let j=1; j<i; j++){
 
@@ -71,23 +67,22 @@ function subForm() {
             }
 
         }
-       
-        for(let k=0; k<i; k++){ 
-            msg = `【注文内容】\n 商品名：${item_name[k]}\n 個数：${num[k]}\n 納期：${date[k]}\n 備考：${note[k]}`;
-            sendText(msg);
-            console.log(msg);
-        }
-    
         
+        console.log(i);
+    
+        for(let k=0; k<i; k++){
+            msg = `【注文内容】\n 商品名：${item_name[k]}\n 個数：${num[k]}\n 納期：${date[k]}\n 備考：${note[k]}`;
+            //console.log(msg);
+            setTimeout(sendText(msg), 1000);
+        }
     return false;
  
 }
 
-
-
+var i = 1;
+var clone_element = {};
 
 function addForm() {
-    console.log(i);
     // 複製するHTML要素を取得
     var content_area = document.getElementById(`form_${i-1}`);
 
