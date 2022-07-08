@@ -95,6 +95,9 @@ function addForm() {
 
     // 複製したHTML要素をページに挿入
     content_area.after(clone_element[i]);
+    
+    // フォームを複製したら前のフォームの送信ボタンを消す
+    document.getElementById(`sub`).remove();
 
     i++;
 };
