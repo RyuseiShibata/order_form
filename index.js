@@ -1,4 +1,5 @@
 
+/*
 $(function () {
     // カレンダー
     $(function () {
@@ -7,88 +8,94 @@ $(function () {
         });
     });
 });
-
-let msg
+*/
 
 function subForm() {
+    //console.log("送信完了");
     let now = new Date();
     let Year = now.getFullYear();
     let Month = now.getMonth()+1;
     let Date1 = now.getDate();
     let Hour = now.getHours();
     let Min = now.getMinutes();
-        
-        let item_name = {};
-        let num = {};
-        let date = {};
-        let note = {};
+    //let Sec = now.getSeconds();
+    
+    let msg
+    let item_name = {};
+    let num = {};
+    let num_buff = {};
+    let date = {};
+    let date_buff = {};
+    let note = {};
 
-        item_name[0] = $('input[name="item_name"]').val();
-        note[0] = document.getElementById("note").value;
 
-        //個数について
-        if($('input[name="num"]:checked').val()== 0){
-            num[0] = "いつもの個数";
+    item_name[0] = $('input[name="item_name"]').val();
+    note[0] = document.getElementById("note").value;
+
+    //個数について
+    if($('input[name="num"]:checked').val()== 0){
+        num[0] = "いつもの個数";
+    }
+    else if($('input[name="num"]:checked').val()== 1){
+        num[0] = "最小ロット";
+    }else{
+        num[0] = $('input[name="input_num"]').val();
+    }
+
+    //納期について
+    if($('input[name="date"]:checked').val()== 0){
+        date[0] = "急ぐ";
+    }
+    else if($('input[name="date"]:checked').val()== 1){
+        date[0] = "急がない";
+    }else{
+        date[0] = $('input[name="input_date"]').val();
+    }
+    
+    
+    for(let j=1; j<i; j++){
+
+        item_name[j] = clone_element[j].querySelector("#item_name").value;
+        note[j] = clone_element[j].querySelector("#note").value;
+        num_buff[j] =  clone_element[j].querySelector('input[name="num"]:checked').value;
+        date_buff[j] = clone_element[j].querySelector('input[name="date"]:checked').value;
+
+        if(num_buff[j] == 0){
+            num[j] = "いつもの個数";
         }
-        else if($('input[name="num"]:checked').val()== 1){
-            num[0] = "最小ロット";
+        else if(num_buff[j] == 1){
+            num[j] = "最小ロット";
         }else{
-            num[0] = $('input[name="input_num"]').val();
+            num[j] = clone_element[j].querySelector("#input_num").value;
         }
-
+    
         //納期について
-        if($('input[name="date"]:checked').val()== 0){
-            date[0] = "急ぐ";
+        if(date_buff[j] == 0){
+            date[j] = "急ぐ";
         }
-        else if($('input[name="date"]:checked').val()== 1){
-            date[0] = "急がない";
+        else if(date_buff[j] == 1){
+            date[j] = "急がない";
         }else{
-            date[0] = $('input[name="input_date"]').val();
+            date[j] = clone_element[j].querySelector("#input_date").value ;
         }
-    
 
-        for(let j=1; j<i; j++){
-
-            item_name[j] = clone_element[j].querySelector("#item_name").value;
-            note[j] = clone_element[j].querySelector("#note").value;
-
-            if(clone_element[j].querySelector("#num").value == 0){
-                num[j] = "いつもの個数";
-            }
-            else if(clone_element[j].querySelector("#num").value == 1){
-                num[j] = "最小ロット";
-            }else{
-                num[j] = clone_element[j].querySelector("#input_num");
-            }
-    
-            //納期について
-            if(clone_element[j].querySelector("#date").value == 0){
-                date[j] = "急ぐ";
-            }
-            else if(clone_element[j].querySelector("#date").value == 1){
-                date[j] = "急がない";
-            }else{
-                date[j] = clone_element[j].querySelector("#input_date").value ;
-            }
-
-        }
+    }
         
-        console.log(i);
-    
-        for(let k=0; k<i; k++){
-            msg = `【注文内容】\n 日時：${Year}年${Month}月${Date1}日${Hour}時${Min}分\n 商品名：${item_name[k]}\n 個数：${num[k]}\n 納期：${date[k]}\n 備考：${note[k]}`;
-            //console.log(msg);
-            setTimeout(sendText(msg), 1000);
-        }
+    console.log(i);
+    for(let k=0; k<i; k++){
+        msg = `【注文内容】\n注文日時：${Year}年${Month}月${Date1}日${Hour}時${Min}分\n 商品名：${item_name[k]}\n 個数：${num[k]}\n 納期：${date[k]}\n 備考：${note[k]}`;
+        //console.log(msg);
+        setTimeout(sendText(msg), 1000);
+    }
     return false;
  
 }
 
-var i = 1;
-var clone_element = {};
+let i = 1;
+let clone_element = {};
 
 function addForm() {
-    
+
     // 複製するHTML要素を取得
     var content_area = document.getElementById(`form_${i-1}`);
 
@@ -104,19 +111,19 @@ function addForm() {
     // 複製後にフォームをクリア
     clone_element[i].reset();
 
-    // フォームを複製したら前のフォームの追加ボタン、送信ボタンを消す
+    //clone_element[j].querySelector("#sub").remove();
     document.getElementById(`sub`).remove();
     document.getElementById(`add`).remove();
 
     i++;
 
-    // フォームタイトルを表示するpタグを前のフォームの末尾に追加
     var new_element = document.createElement('p');
     new_element.textContent = `商品${i}`;
     new_element.className = "ttt";
 
     content_area.after(new_element);
-};
+    
+}
 
 /*
 //「数値入力」以外のラジオボタンが選択されているときは数値入力をdisableに
