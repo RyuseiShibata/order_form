@@ -85,7 +85,7 @@ function subForm() {
     for(let k=0; k<i; k++){
         msg = `【注文内容】\n注文日時：${Year}年${Month}月${Date1}日${Hour}時${Min}分\n 商品名：${item_name[k]}\n 個数：${num[k]}\n 納期：${date[k]}\n 備考：${note[k]}`;
         //console.log(msg);
-        setTimeout(sendText(msg), 1000);
+        setTimeout(sendText(msg), 3000);
     }
     return false;
  
