@@ -85,11 +85,20 @@ function subForm() {
     for(let k=0; k<i; k++){
         msg = `【注文内容】\n注文日時：${Year}年${Month}月${Date1}日${Hour}時${Min}分\n 商品名：${item_name[k]}\n 個数：${num[k]}\n 納期：${date[k]}\n 備考：${note[k]}`;
         //console.log(msg);
-        setTimeout(function(){console.log(i}, 1000);
         sendText(msg);
+        syncDelay(1000);
     }
     return false;
  
+}
+
+// delay
+function syncDelay(milliseconds){
+    var start = new Date().getTime();
+    var end=0;
+    while( (end-start) < milliseconds){
+        end = new Date().getTime();
+    }
 }
 
 let i = 1;
