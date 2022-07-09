@@ -86,12 +86,13 @@ function subForm() {
         msg = `【注文内容】\n注文日時：${Year}年${Month}月${Date1}日${Hour}時${Min}分\n 商品名：${item_name[k]}\n 個数：${num[k]}\n 納期：${date[k]}\n 備考：${note[k]}`;
         //console.log(msg);
         sendText(msg);
-        syncDelay(1000);
+        //syncDelay(1000);
     }
     return false;
  
 }
 
+/*
 // delay
 function syncDelay(milliseconds){
     var start = new Date().getTime();
@@ -100,6 +101,7 @@ function syncDelay(milliseconds){
         end = new Date().getTime();
     }
 }
+*/
 
 let i = 1;
 let clone_element = {};
