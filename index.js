@@ -12,6 +12,7 @@ $(function () {
 
 function subForm() {
     //console.log("送信完了");
+    /*
     let now = new Date();
     let Year = now.getFullYear();
     let Month = now.getMonth()+1;
@@ -19,6 +20,7 @@ function subForm() {
     let Hour = now.getHours();
     let Min = now.getMinutes();
     //let Sec = now.getSeconds();
+    */
     
     let msg
     let item_name = {};
@@ -83,7 +85,8 @@ function subForm() {
         
     console.log(i);
     for(let k=0; k<i; k++){
-        msg = `【注文内容】\n注文日時：${Year}年${Month}月${Date1}日${Hour}時${Min}分\n 商品名：${item_name[k]}\n 個数：${num[k]}\n 納期：${date[k]}\n 備考：${note[k]}`;
+        msg = `【ご注文内容】\n 商品名：${item_name[k]}\n 個数：${num[k]}\n 納期：${date[k]}\n 備考：${note[k]}`;
+        //注文日時：${Year}年${Month}月${Date1}日${Hour}時${Min}分\n
         //console.log(msg);
         sendText(msg);
         //syncDelay(1000);
